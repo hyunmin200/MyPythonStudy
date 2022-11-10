@@ -1,0 +1,6 @@
+파이썬은 클래스안에 메서드를 호출 할 때 인스턴스가 자동으로 호출이 되어서
+self를 붙혀 줘야 한다
+
+isinstance()를 조건문에 사용가능
+isinstance(Unit, Marine) 이런식으로
+unit에 marine이라면 조건문이 돌게 만들 수 있다.

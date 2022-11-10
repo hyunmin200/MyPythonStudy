@@ -1,0 +1,945 @@
+데이터 타입(data-type)
+
+python에는 6가지 데이터 타입이 존재한다.
+
+Numeric Types: int(정수), float(소수), complex(복소수)
+Sequence Types: str(문자열), list(리스트), tuple(튜플)
+Mapping Type: dict(딕셔너리)
+Set Types: set(집합)
+Boolean Type: bool(불리언)
+Binary Types: bytes, bytearray, memoryview
+
+
+
+연산자(Osperator)
+
+파이썬의 연산자는 7가지가 있다.  
+
+    +, -, *, /, %, **, // 
+
+% 는 나머지 연산자  
+** 는 거듭제곱  
+// 자리 내림 나눗셈
+
+
+리스트(list)
+
+num = [10, 20, 30]
+이런식으로 사용
+
+num.append(40)
+뒤로 넣을 수 있음
+
+num.insert(1, 15)
+1의 자리에 15를 넣고 1자리 뒤부터 한 칸씩 밀림
+
+num.pop()
+뒤에서 부터 하나씩 뺄 수 있음
+num.count(10)
+몇번 나오는지 알 수 있음
+
+num.sort()
+sort를 사용하면 정렬도 가능하다.
+
+num.reverse()
+num에 있는 것을 꺼꾸로 순서를 뒤집을수 있음
+
+num.clear()
+num에있는 것을 싹다 지운다
+
+list는 자료형에 구애받지 않고 섞어서 사용이 가능하다.
+
+mix = ["황현민", 10]
+print(mix)
+
+잘 출력이 된다.
+
+리스트 확장
+num = [1, 2, 3, 4, 5]
+mix = ["황현민", 10]
+
+num.extend(mix)
+print(num)
+확장이 잘 된것을 볼 수 있다.
+
+
+사전(dictionary)
+
+key와 value가 있음
+
+cabinet = { key:value } 
+기본형태
+
+cabinet  = {1: "황현민", 2:"200원"}
+print(cabinet[1]) #키값을 넣는다
+
+cabinet.get(1)로도 값을 가져올 수 있다.
+
+print(cabinet[5]) 이런식으로 5라는 키가 없는데 사용한다면 프로그램이 종료가 된다.
+
+하지만
+print(cabinet.get(5)) 이런식으로 사용을 하였다면 null이라는 값이 출력되고 프로그램이 종료되지 않는다.
+
+cabinet.get(5, "사용 불가")
+이런식으로 default값을넣어 줄 수 있다.
+
+사전자료안에 값이 있는지 확인 하기
+print(3 in cabinet) 있으면 true 없으면 false
+
+키값을 스트링(문자열)로 주는 것도 가능하다.
+
+cabinet = {"황": "현민", "일": "이"}
+print(cabinet["황"])
+이런식으로 사용가능
+
+값 넣기 및 교체
+cabinet = {1:"1", 2:"2", 3:"3", 4:"4", 5:"5"}
+print(cabinet)
+cabinet[1] = "200원" 이런식으로 교체가 가능하다.
+cabinet[16] = "16번 황현민" 이런식으로 추가가 가능하다
+print(cabinet)
+
+값 빼기
+del cabinet["1"]
+이런식으로 하면 값이 지워진다.
+
+키들만 출력
+print(cabinet.keys())
+
+값들만 출력
+print(cabinet.values())
+
+키와 값 쌍으로 출력
+print(cabinet.items())
+
+값 모두 삭제
+cabinet.clear()
+
+
+튜플
+
+튜플은 리스트하고 다르게 내용을 변경을 하거나 추가를 할 수가 없다.
+하지만 리스트보다 빠르다
+
+주로 변경되지 않는 목록에 사용이 된다.
+
+menu = ("돈까스", "치즈까스")
+이런식으로 사용이 가능하다.
+
+menu.add("생선까스") 오류가 난다.
+
+name = "황현민"
+age = "17"
+hobby = "코딩"
+print(name, age, hobby)
+이 부분을 tuple(튜플)을 사용한다면
+
+(name, age, hobby) = ("김종국", 20, "코딩",)
+이런식으로 사용이 가능하다.
+
+
+집합 (set)
+중복 안됨, 순서 없음
+
+my_set = {1, 2, 3, 3, 3}
+print(my_set)
+이렇게 출력을 하면 1, 2, 3이 출력이 되고 뒤에 3들은 무시가 된다.
+
+java = {"황현민", "이백원", "200원"}
+csharp = set(["황현민", "씨샵개발자"]) 리스트 만들고 set으로 감싸기
+
+교집합 (java와 c#을 모두 할 수 있는 개발자)
+
+print(java & csharp) 이러면 황현민이 나온다.
+print(java.intersection(csharp)) 이렇게 해도 위랑 똑같이 황현민이 나온다.
+
+합집합 (java를 할 수 있거나 c#을 할 수 있는 개발자)
+
+print(java | csharp)
+print(java.union(csharp))
+이러면 다 출력이 된다.
+
+순서가 없기 때문에 이백원, 200원, 황현민, 씨샵개발자 이런식으로 출력이 될 수도 있다.
+
+차집합 (java는 할 수 있지만, c#은 할 줄 모르는 개발자)
+
+print(java - csharp)
+print(java.difference(csharp))
+
+c#을 할 줄 아는 사람이 늘어남
+csharp.add("이백원")
+
+java를 까먹음
+java.remove("200원")
+
+
+
+자료구조의 변경
+
+
+menu = {"커피", "우유", "주스"}
+print(menu, type(menu))
+이런식으로 자료형을 볼 수 있음
+
+menu = list(menu)
+print(menu, type(menu))
+이런식으로 set을 리스트로 바꿀 수 있다
+
+menu = tuple(menu)
+print(menu, type(menu))
+또 리스트를 투플로 바꿀 수 있다.
+
+menu = set(menu)
+print(menu, type(menu))
+여기서 또 투플을 set으로 바꿀 수 있다.
+
+
+if문
+
+if 조건:
+    실행 명령문
+
+weather = "비"
+if weather = "비":
+    print("우산을 챙기세요")
+이러면 우산을 챙기세요라는 문자열이 출력된다.
+
+다른 조건도 만들고 싶다면
+weather = "맑음"
+if weather = "비":
+    print("우산을 챙기세요")
+elif weather = "미세먼지"
+    print("마스크를 챙기세요")
+else:
+    print("준비물 필요 없어요")
+
+이런식으로 사용할 수 있다.
+
+weather = input("오늘 날씨는 어때요? ") input으로 입력을 받을 수 있음 string형태로 저장됨
+if weather = "비":
+    print("우산을 챙기세요")
+elif weather = "미세먼지"
+    print("마스크를 챙기세요")
+else:
+    print("준비물 필요 없어요")
+
+
+if weather = "비" or "눈":
+이런식으로로 or로 조건을 추가 할 수 있다
+
+
+temp = int(input("기온은 어때요?"))
+if 30 <= temp:
+    print("너무 더워요")
+elif 10 <= temp and temp < 30:
+    print("괜찮은 날씨에요")
+elif 0 <= temp and temp < 10:  #0 <= temp < 10: 이런식으로도 사용 가능
+    print("외투를 챙기세요")
+else:
+    print("너무 추워요. 나가지 마세요")
+
+
+여기서 잠깐 or는 앞조건 또는 뒤조건 중에 하나만 true라면 true가 나오는 것이고
+and는 앞조건과 뒤조건 둘 다 true여야지 true가 나온다.
+
+
+
+for 반복문
+
+for waiting in [0, 1, 2, 3, 4]:
+    print("대기번호 : {0}".format(waiting))
+뒤에 리스트안에 값을 하나씩 돌아가면서 반복이 된다.
+
+값이 순차적으로 커질 때에는 range사용 (randrange와 비슷함)
+for waiting in range(5): 0에서 5미만까지 돌아간다
+    print("대기번호 : {0}".format(waiting))
+
+for waiting in range(1,6): 이런식으로 한다면 1부터 6미만까지 나온다
+    print("대기번호 : {0}".format(waiting))
+
+shop = ["황현민", "이백원", "200원"]
+for customer in shop:
+    print("{0}, 커피가 준비가 되었습니다.".format(customer))
+리스트만큼 돌아간다.
+
+
+while 반복문
+
+while(조건):
+이런식으로 사용
+
+5번 손님을 부를동안 나오지 않으면 폐기처분이 된다.
+customer = "황현민"
+index = 5
+while index >= 1:
+    print("{0}, 커피가 준비 되었습니다. {1}번 남았어요".format(customer))
+    index -= 1
+    if index == 0:
+        print("커피는 폐기처분되었습니다.")
+
+여기서는 손님이 나올 때까지 부른다.
+customer = "이백원"
+while True:
+    print("{0}, 커피가 준비 되었습니다. 호출 {1} 회".format(customer, index))
+    index += 1
+
+이러면 무한루프를 돌게 된다.
+
+즉 while문은 조건이 만족할 때까지 계속 반복이 되는 것이다.
+
+
+
+continue와 break
+
+absent = [2, 5] # 결석
+nobook = [7] # 책을 깜빡했음
+for student in range(1, 11):
+    if student in absent:
+        continue; 다음 반복으로 넘어간다.
+    elif student in nobook:
+        print("오늘 수업 여기까지, {0}는 교무실로 따라와".format(student))
+        break;
+    print("{0}, 책을 읽어봐".format(student))
+
+
+한줄 format
+
+# 출석번호가 1, 2,3, 4, 5 앞에 100을 붙이기로 함 -> 101, 102, 103
+students = [1, 2, 3, 4, 5]
+print(students)
+students = [i + 100 for i in students]
+print(students)
+
+# 학생 이름을 길이로 변환
+students = ["황현민", "이백원", "200원"]
+students = [len(i) for i in students]
+
+# 학생 이름을 대문자로 변환
+students = ["황현민", "이백원", "200원"]
+students = [i.upper() for i in students]
+print(students)
+
+
+
+함수
+
+def open_account(): #함수 정의
+    print("새로운 계좌가 생성되었습니다.")
+
+open_account() #실행
+
+
+함수의 전달값과 반환값
+
+# 입금
+def deposit(balance, money): #함수 정의
+    print("입금이 완료되었습니다. 잔액은 {0} 원입니다.".format(balance, money))
+    return balance + money
+# 출금
+def withdraw(balance, money)
+    if balance >= money: #잔액이 출금보다 많으면
+        print("출금이 완료되었습니다. 잔액은 {0}원입니다.".format(balance - money))
+        return balance - money
+    else:
+        print("출금이 완료되지 않았습니다. 잔액은 {0} 원입니다.".format(balance - money))
+        return balance
+# 저녁 출금
+def withdraw_night(balance, money):
+    commission = 100
+    return commission, balance - money - commission # 투플 형식
+
+
+balance = 0
+balance = deposit(balance, 1000) #매개변수 넣기
+print(balance)
+balance = withdraw(balance, 500)
+commission, balance = withdraw_night(balance, 500)
+print("수수료 {0}원이며, 잔액은 {1} 원입니다.".format(commission, balance))
+
+
+함수 기본값
+
+def profile(name, age, main_lang):
+    print("이름 : {0}\t 나이 : {1}\t 주 사용 언어: {2}"\ #이렇게 하면 두문장이 한문장처럼 읽어짐
+    .format(name, age, main_lang))
+
+profile("황현민", 20, "파이썬")
+profile("이백원", 25, "자바")
+이렇게 할 수 있지만
+
+같은 학교 같은 학교 같은 반 같은 수업을 듣는 다면
+이름 빼고 다 같기 때문에
+
+def profile(name, age = 17, main_lang="파이썬"):
+    print("이름 : {0}\t 나이 : {1}\t 주 사용 언어: {2}"\ #이렇게 하면 두문장이 한문장처럼 읽어짐
+    .format(name, age, main_lang))
+
+profile("황현민")
+profile("이백원")
+
+
+키워드값
+
+def profile(name, age, main_lang):
+    print(name, age, main_lang)
+
+profile(name = "황현민", main_lang = "파이썬", age = "17")
+profile(main_lang = "자바", age = "17", name = "이백원")
+
+이렇게 키워드값으로 받는 다면 순서상관없이 값을 받을 수 있다.
+
+
+
+가변 인자
+
+def profile(name, age, lang1, lang2, lang3, lang4, lang5):
+    print("이름 : {0}\t 나이 : {1}\t".format(name, age), end = " ")
+    print(lang1, lang2, lang3, lang4, lang5)
+
+prifile("황현민", 17, "python", "python")
+profile("이백원", 17, "Kotlin", "Swift", "", "", "")
+이러면 나중에 추가 할 때 어렵다.
+
+def profile(name, age, *laguage): #가변 인자
+    print("이름 : {0}\t 나이 : {1}\t".format(name, age), end = " ")
+    for lang in language:
+        print(lang, end=" ")
+    print()
+
+prifile("황현민", 17, "python", "python")
+profile("이백원", 17, "Kotlin", "Swift")
+
+
+지역변수와 전역변수
+
+지역변수는 함수 안에서만 사용가능하고 사라지는 것
+전역변수는 어디서나 사용할 수 있는 것
+
+gun = 10
+
+def checkpoint(soldiers):
+    gun = gun - soldiers
+    print("[함수 내] 남은 총 : {0}".format(gun))
+
+print("전체 총 : {0}".format(gun))
+checkpoint(2)
+print("남은 총 : {0}",format(gun))
+
+이러면 오류가 날 것이다
+
+왜냐하면 함수안에 gun은 지역변수인데 선언을 하지도 않은것을 빼는것에 사용하였기 때문이다.
+이때 저녁 변수를 사용한다.
+
+gun = 10
+
+def checkpoint(soldiers):
+    global gun # 전역 공간에 있는 gun 사용
+    gun = gun - soldiers
+    print("[함수 내] 남은 총 : {0}".format(gun))
+
+print("전체 총 : {0}".format(gun))
+checkpoint(2)
+print("남은 총 : {0}",format(gun))
+
+이런식으로 global을 사용한다면 전역변수를 사용할 수 있다.
+
+하지만 일반적으로는 전역변수를 많이 사용하는 것은 좋지 않다.
+
+그래서 함수에서 리턴해주는 것이 좋다.
+
+gun = 10
+
+def checkpoint(soldiers):
+    gun = gun - soldiers
+    print("[함수 내] 남은 총 : {0}".format(gun))
+
+def checkpoint_ret(gun, soldiers):
+    gun = gun - soldiers
+    print("[함수 내] 남은 총 : {0}".format(gun))
+    return gun;
+
+print("전체 총 : {0}".format(gun))
+gun = checkpoint_ret(gun, 2)
+print("남은 총 : {0}",format(gun))
+
+이런식으로 사용을 한다면 지역변수를 사용하여서 값을 똑같이 만들 수 있다.
+
+
+표준 입출력
+
+우리는 지금까지 
+print("Python", "Java")이런식 또는 
+print("Python" + "Java")이런식으로 사용을 하였지만
+
+print("Python", "Java", sep = ",")
+이런식으로도 사용이 가능하다
+
+만약에print("Python", "Java", "JavaScript", sep = "vs")
+이런식으로 쓴다면
+
+Python vs Java vs JavaScript
+이런식으로 출력이 된다.
+
+print("Python", "Java", "JavaScript", sep = ",", end="?")
+
+end를 사용해서
+
+Python,Java? 이런식으로 나온다.
+
+end는 문장의 끝부분을 ?로 바꾸어라 라고 지정되어 있는 것이다.
+
+또 다른 것을 보면
+
+import sys
+print("Python", "Java", file = sys.stdout) # 표준출력
+print("Python", "Java", file = sys.stderr) # 표준에러
+
+scores = {"수학": 0, "영어": 50, "코딩": 100}
+for subject, score in scores.items():
+    #print(subject, score)
+    print(subject.ljust(8), str(score).rjust(4), sep=":") 
+    #왼쪽으로 8칸을 확보한 상태로 완쪽정렬 그리고 score은 오른쪽으로 4칸을 확보한 상태로 오른쪽 정렬
+
+# 은행 대기순번표
+# 001, 002, 003, ...
+for num in range(1, 21):
+    print("대기번호 : " + str(num).zfill(3))
+    #0을 채우는 것이다 괄호에 숫자만큼 값을 채우는데 없으면 0을 넣는다.
+
+표준입력
+
+answer = input("아무 값이나 입력하세요 : ")
+print("입력하신 값은 " + answer + "입니다.")
+
+input으로 입력을 받게 되면 항상 str형으로 받게 된다
+
+file=sys.stdout # 표준 출력
+file=sys.stderr # 표준 에러
+
+print("{0: +>10}".format(500))
+{0:^<+30,}
+설명
+{포멧 순서:빈칸에 들어갈 것|정렬표시(><)|양수음수표현(+)|정렬할 칸수|콤마(3자리마다)(,)}
+{0:f}.format(5/3) 이런식으로 사용시 소수점 표현 가능
+{0:.2f}.format(5/3) 이런식으로 사용시 소수점 특정 자리수 까지 표현가능
+
+파일입출력
+변수 = open("파일이름", "쓰기정보(w(쓰기), a(이어쓰기), r(읽기))", encoding="utf-8")
+
+쓰는법
+Write
+print("수학 : 0", file=변수)
+Append  
+변수.write("과학 : 80") # 줄바꿈 없음
+Read
+print(변수.read())
+print(변수.readline()) # 줄별로 읽기, 한 줄 읽고 커서는 다음 줄로 이동
+print(변수.readline(), end="") # 줄바꿈 싫으면 end사용
+#남이 작성하여 몇 줄일지 모를 때
+while True:
+    line = 변수.readline()
+    if not line:
+        break
+    print(line)
+
+#리스트형태로 저장
+lines = 변수.readlines() # list형태로 저장
+for line in lines:
+    print(line, end="") # 이런식으로 출력가능
+
+변수.close() # 마지막에 무조건 닫기
+
+pickle
+프로그램상에서 우리가 사용하고 있는 데이터를 파일의 형태로 주는 것이다.
+
+파일 쓰기
+import pickle #임포트
+
+변수 = open("파일이름.pickle", "wb(b라는 binary를 붙여줘야 함)") # 인코딩은 할 필요없음
+profile = {"이름":"황현민", "나이":30, "취미":["코딩", "축구", "게임"]}
+피클로 이 데이터를 파일로 쓰는것
+pickle.dump(profile, 변수) #profile에 있는 정보를 file에 저장하는 것
+
+변수.close()
+
+파일 가져오기
+import pickle #임포트
+변수 = open("파일이름.pickle", "rb(b라는 binary를 붙여줘야 함)") # 인코딩은 할 필요없음
+profile = pickle.load(변수) # file에 있는 정보를 profile에 불러오기
+
+변수.close()
+
+
+with
+조금 더 편하게 파일작업 가능
+
+import pickle
+
+with open("파일이름", "rb") as 변수:
+    print(pickle.load(변수))
+
+pickle을 사용하지 않았을 때
+
+쓰기
+with 변수 = open("파일이름.pickle", "w", encoding="utf-8") as 변수:
+    변수.write("파이썬을 열심히 공부하고 있어요")
+#이런식으로 파일을 쓸 수 있다
+
+불러오기
+with 변수 = open("파일이름.pickle", "r", encoding="utf-8") as 변수:
+    print(변수.read())
+
+클래스(class)
+
+# 마린 : 공격 유닛, 군인. 총을 쓸 수 있음
+name = "마린" # 유닛의 이름
+hp = 40 # 유닛의 체력
+damage = 5 # 유닛의 공격력
+
+print("{0} 유닛이 생성되었습니다".format(name))
+print("체력 {0}, 공격력 {1}\n".format(hp, damage))
+
+# 탱크 : 공격 유닛, 탱크, 포를 쓸 수 있는데, 일반 모드 / 시즈 모드
+tank_name = "탱크"
+tank_hp = 150
+tank_damage = 35
+
+print("{0} 유닛이 생성되었습니다".format(tank_name))
+print("체력 {0}, 공격력 {1}\n".format(tank_hp, tank_damage))
+
+tank2_name = "탱크"
+tank2_hp = 150
+tank2_damage = 35
+
+print("{0} 유닛이 생성되었습니다".format(tank2_name))
+print("체력 {0}, 공격력 {1}\n".format(tank2_hp, tank2_damage))
+#이렇게 매번 만드는 것은 힘들다
+
+def attack(name, location, damage):
+    print("{0} : {1} 방향으로 적군을 공격 합니다. [공격력 {2}]".format( \
+        name, location, damage))
+
+attack(name, "1시", damage)
+attack(tank_name, "1시", tank_damage)
+attack(tank2_name, "1시", tank2_damage)
+
+클래스는 붕어빵틀 같은 것 틀은 하나인데 무한정 만들 수 있음
+
+class Unit:
+    def __init__(self, name, hp, damage):  #init은 파이썬의 생성자이다.
+        self.name = name; # 멤버 변수
+        self.hp = hp; # 멤버 변수
+        self.damage = damage; # 멤버 변수
+        print("{0} 유닛이 생성되었습니다".format(self.name))
+        print("체력 {0}, 공격력 {1}\n".format(self.hp, self.damage))
+
+marine1 = Unit("마린", 40, 5)
+marine2 = Unit("마린", 40, 5)
+tank = Unit("탱크", 150, 35)
+
+이런식으로 만들 수 있음
+
+멤버 변수
+
+# 레이스 : 공중 유닛, 비행기, 클로킹 (상대방에게 보이지 않음(스텔스느낌))
+wraith1 = Unit("레이스", 80, 5)
+print("유닛 이름 : {0}, 공격력 : {1}".format(wraith1.name, wraith1.damage))
+# 이런식으로 멤버 변수에 접근하여 사용가능
+
+# 마인드 컨트롤 : 상대방 유닛을 내 것으로 만드는 것 (뺴앗음)
+wraith2 = Unit("빼앗은 레이스", 80, 5)
+wraith2.clocking = True # 외부에서 추가 할당을 할 수가 있음
+# 할당한 객체에서만 사용가능
+
+if wraith2.clocking == True:
+    print("{0}는 클로킹 상태입니다.".format(wraith2.name))
+
+
+메소드
+
+class Unit:
+    def __init__(self, name, hp, damage):  #init은 파이썬의 생성자이다.
+        self.name = name; # 멤버 변수
+        self.hp = hp; # 멤버 변수
+        self.damage = damage; # 멤버 변수
+        print("{0} 유닛이 생성되었습니다".format(self.name))
+        print("체력 {0}, 공격력 {1}\n".format(self.hp, self.damage))
+
+class AttackUnit:
+    def __init__(self, name, hp, damage): 
+        self.name = name;
+        self.hp = hp;
+        self.damage = damage;
+        print("{0} 유닛이 생성되었습니다".format(self.name))
+        print("체력 {0}, 공격력 {1}\n".format(self.hp, self.damage))
+
+    def attack(self, location):
+        print("{0} : {1} 방향으로 적군을 공격 합니다. [공격력 {2}"\
+        .format(self.name, location, self.damage))
+
+    def damaged(self, damage):
+        print("{0} : {1} 데미지를 입었습니다.".format(self.name, damage))
+        self.hp -= damage
+        print("{0} : 현재 체력은 {1} 입니다.".format(self.name, self.hp))
+        if self.hp <= 0:
+            print("{0} : 파괴되었습니다.".format(self.name))
+
+self는 자기자신을 의미하는 것이고 
+클래스에서 메소드에 self를 무조건 넣는다.
+
+# 파이엇뱃 : 공격 유닛, 화염방사기
+firebat1 = AttackUnit("파이어뱃", 50, 16)
+firebat1.attack("5시")
+
+#공격을 두 번 받는다고 가정
+firebat1.damaged(25)
+firebat1.damaged(25)
+
+
+상속
+
+class Unit:
+    def __init__(self, name, hp)
+        self.name = name
+        self.hp = hp
+
+class AttackUnit(Unit):
+    def __init__(self, name, hp):
+        Unit.__init__(self, name, hp)
+        self.damage = damage
+
+이런식으로 상속 사용 가능
+
+
+다중 상속
+부모가 둘 이상
+
+class Unit:
+    def __init__(self, name, hp)
+        self.name = name
+        self.hp = hp
+
+class AttackUnit(Unit):
+    def __init__(self, name, hp):
+        Unit.__init__(self, name, hp)
+        self.damage = damage
+
+# 드람쉽 : 공중 유닛, 수송기, 마린 / 파이어뱃 / 탱크 등을 수송. 공격 X
+
+# 날 수 있는 기능을 가진 클래스
+class Flyable:
+    def __init__(self, flying_speed):
+        self.flying_speed = flying_speed
+
+    def fly(self, name, location):
+        print("{0} : {1} 방향으로 날아갑니다. [속도 {2}]"\
+            .format(name, location, self.flying_speed))
+
+# 공중 공격 유닛 클래스
+class FlyableAttackUnit(AttackUnit, Flyable):
+    def __init(self, name, hp, damage, flying_speed)
+        AttackUnit.__init(self, name, hp, damage)
+        Flyable.__init__(self, flying_speed)
+
+# 발키리 : 공중 공격 유닛, 한번에 14발 미사일 발사.
+valkyrie = FlyableAttackUnit("발키리", 200, 6, 5)
+valkyrie.fly(valkyrie.name, "3시")
+
+
+메소드 오버라이딩
+
+상속받은 곳에서 쓰고 싶은 형식으로 메소드를 재정의 하는 것
+
+
+pass
+
+# 건물
+class BuildingUnit(Unit):
+    def __init__(self, name, hp, location):
+        pass # 아무것도 안하고 있단 넘어가기(다한것처럼 보이게)
+
+# 서플라이 디폿 : 건물, 1개 건물 = 8 유닛.
+supply_depot = BuildingUnit("서플라이 디폿", 500, "7시")
+
+def game_start():
+    print("[알림] 새로운 게임을 시작합니다.")
+
+def game_over():
+    pass
+
+game_start()
+game_over()
+
+
+
+super
+
+
+class BuildingUnit(Unit)
+ def __init__(self, name, hp, location)
+    #Unit.__init__(self, name, hp, 0)
+    super().__init__(name, hp, 0)
+    #위에 둘이 똑같지만 super는 self를 없이 사용한다.
+    self.location = location
+
+이렇게 하면 부모 클래스인 Unit을 초기화 할 수 있다.
+
+다중상속때는 다르다
+
+class Unit:
+    def __init__(self):
+        print("Unit 생성자")
+
+classs Flyable
+    def __init__(self):
+        print("Flyable 생성자")
+
+class FlyableUnit(Unit, Flyable):
+    def __init__(self):
+        super().__init__()
+
+# 드랍쉽
+dropship = FlyableUnit()
+
+하지만 다중상속에서 슈퍼를 사용한다면
+먼저 상속된 것만 초기화가 되기 때문에 상속한 것을 모두 초기화 시키고 싶다면
+Unit.__init__(self)
+Flyable.__init__(self)
+이런식으로 사용해야 한다.
+
+
+예외처리
+
+
+try:
+    print("나누기 전용 게산기")
+    num1 = int(input("첫 번째 숫자를 입력하세요 : "))
+    num2 = int(input("두 번째 숫자를 입력하세요 : "))
+    print("{0} / {1} = {2}".format(num1, num2, int(num1/num2)))
+except ValueError:
+    print("에러! 잘못된 값을 입력하였습니다.")
+except ZeroDivisionError as arr:
+    print(err)
+
+#에러가 명확할 때 위처럼 사용가능
+#이런식으로 에외처리를 할 수 있다.
+
+
+try:
+    print("나누기 전용 게산기")
+    nums = []
+    nums.append(int(input("첫 번째 숫자를 입력하세요 : ")))
+    nums.append(int(input("두 번째 숫자를 입력하세요 : ")))
+    #nums.append(int(nums[0] / nums[1])) #만약 이부분을 까먹었다면
+    print("{0} / {1} = {2}".format(nums[0], nums[1], nums[2]))
+except ValueError:
+    print("에러! 잘못된 값을 입력하였습니다.")
+except ZeroDivisionError as arr:
+    print(err)
+except Exception as err:
+    print("알 수 없는 에러가 발생하였습니다.")
+    print(err)
+
+그냥 except: 로 모든 예외 처리가 가능하다.
+
+
+에러 발생시키기
+의도적으로 에러 발생시키기
+
+try:
+    print("한 자리 숫자 나누기 전용 계산기입니다.")
+    num1 = int(input("첫 번째 숫자를 입력하세요 : ")
+    num2 = int(input("두 번째 숫자를 입력하세요 : ")
+    if num1 >= 10 or num2 >= 10:
+        raise ValueError
+    print("{0} / {1} = {2}".format(num1, num2, int(num1/num2)))
+except ValueError:
+    print("잘못된 값을 입력하였습니다. 한 자리 숫자만 입력하세요.")
+
+raise로 의도적으로 에러를 발생시킬 수 있다
+
+사용자 정의 예외처리
+에러처리를 만들기
+
+class BigNumberError(Exception):
+    pass
+try:
+    print("한 자리 숫자 나누기 전용 계산기입니다.")
+    num1 = int(input("첫 번째 숫자를 입력하세요 : ")
+    num2 = int(input("두 번째 숫자를 입력하세요 : ")
+    if num1 >= 10 or num2 >= 10:
+        raise BigNumberError
+    print("{0} / {1} = {2}".format(num1, num2, int(num1/num2)))
+except ValueError:
+    print("잘못된 값을 입력하였습니다. 한 자리 숫자만 입력하세요.")
+except BigNumberError:
+    print("에러가 발생하였습니다. 한 자리 숫자만 입력하세요.")
+
+다른 형식
+
+class BigNumberError(Exception):
+    def __init__(self, msg):
+        self.msg = msg
+    
+    def __str__(self):
+        return self.msg
+try:
+    print("한 자리 숫자 나누기 전용 계산기입니다.")
+    num1 = int(input("첫 번째 숫자를 입력하세요 : ")
+    num2 = int(input("두 번째 숫자를 입력하세요 : ")
+    if num1 >= 10 or num2 >= 10:
+        raise BigNumberError("입력값 : {0}, {1}".format(num1, num2))
+    print("{0} / {1} = {2}".format(num1, num2, int(num1/num2)))
+except ValueError:
+    print("잘못된 값을 입력하였습니다. 한 자리 숫자만 입력하세요.")
+except BigNumberError as err:
+    print("에러가 발생하였습니다. 한 자리 숫자만 입력하세요.")
+    print(err)
+
+이런식으로도 처리가 가능하다.
+
+
+finally
+에외 처리 구문에서 무조건 실행되는 구문
+
+class BigNumberError(Exception):
+    def __init__(self, msg):
+        self.msg = msg
+    
+    def __str__(self):
+        return self.msg
+try:
+    print("한 자리 숫자 나누기 전용 계산기입니다.")
+    num1 = int(input("첫 번째 숫자를 입력하세요 : ")
+    num2 = int(input("두 번째 숫자를 입력하세요 : ")
+    if num1 >= 10 or num2 >= 10:
+        raise BigNumberError("입력값 : {0}, {1}".format(num1, num2))
+    print("{0} / {1} = {2}".format(num1, num2, int(num1/num2)))
+except ValueError:
+    print("잘못된 값을 입력하였습니다. 한 자리 숫자만 입력하세요.")
+except BigNumberError as err:
+    print("에러가 발생하였습니다. 한 자리 숫자만 입력하세요.")
+    print(err)
+finally:
+    print("계산기를 이용해 주셔서 감사합니다.")
+
+
+모듈(부품)
+모듈화를 시켜서 사용하면 유지보수하기가 좋음
+같은 경로나 폴더에 있어야 사용가능
+
+import 파일명
+파일명.모듈안에 있는 것
+or
+import 파일명 as 별명
+별명.모듈안에 있는 것
+or
+from 파일명 import *
+# from random import * 와 같은 것
+이러면 그냥 모듈안에 있는 것을 사용 가능
+
+from 파일명 import 필요한 것(여러개 가능)(price, people 이런식으로)
+이러면 모듈안에 있는 필요한 것만 사용이 가능하다.
+
+from 파일명 import 필요한 것 as 별명 
+이렇게도 사용이 가능하다.
